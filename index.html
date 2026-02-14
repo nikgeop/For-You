@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hmmm What's dis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <h1>Look at this splig</h1>
+            <p>It's pretty crazy</p>
+            <button onclick="startExperience()">...</button>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="splig.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="main-content" class="content-blurred">
+    <header class="hero" id="hero-slideshow">
+    <div class="header-card">
+        <h1 class="top">Happy Valentine's Day</h1>
+        <p class="sidetext">To my little splig!</p>
+    </div>
+    </header>
+
+        <section class="letter-container">
+            <h2 class="section-title"></h2>
+
+            <div class="letter-row">
+                <div class="letter-text">
+                    <p>
+                        My baby my splig my darling my muffin my cupcake my one and only and future wife, I love you so much.
+                        I cant help but feel like the luckiest person ever. How is it possible that I could love somebody as much as 
+                        I love you? For every single part of you, from your charm, to your intelligence, to your silliness and Everything
+                        in between. 
+                    </p>
+                    <p>
+                        Goshhh look at this photo aren't we the cutest couple out there?? Look at that little splink awww she is so cute
+                    </p>
+                </div>
+                <div class="letter-image">
+                    <img src="img1.jpg" alt="Memory 1">
+                </div>
+            </div>
+
+            <div class="letter-row reverse">
+                <div class="letter-text"> 
+                    <p>
+                        From all for our moments, good and bad, you've helped me learn so much about myself. And I am so happy that you've given 
+                        me that opportunity to grow, together, with you. And I want to keep growing with you baby. From this valentines day, to the 
+                        next, and for every valentines day I want you to know how much i appreciate you. And for every day in between for that matter! I also feel like i've grown as an individual
+                        sooo much through our relationship, and you have taught me and inspired me to be a better person. 
+                    </p>
+                    <p>
+                        You know how I say that one shroom trip fundementally
+                        changed me as a person? well, aside from that there has only been one other thing that has had more of an impact on the kind 
+                        of person I am, and that's you. You taught be to be kinder, more open minded, and love myself more, slowly but surely.
+                    </p>
+                </div>
+                <div class="letter-image">
+                    <img src="img2.jpg" alt="Memory 2">
+                </div>
+            </div>
+
+            <div class="letter-row">
+                <div class="letter-text">
+                    <p>
+                        I can't wait for what the future holds for us. I cant wait to move in with you, see you walk
+                        down the aisle and kissing you at the altar, having kids, growing old together, and all the quiet moments of us together. You
+                        really are the only, and I mean the only person I want to spend the rest of my life with. I cant express it with words.
+                        I hope the amount of time "studying" this website is just a testament to how much I mean every word of this. 
+                    </p>
+                </div>
+                <div class="letter-image">
+                    <img src="img6.jpg" alt="Memory 3">
+                </div>
+            </div>
+            <div class="letter-row">
+                <div class="letter-text">
+                    <p>
+                        I wish I did stuff like this more often, because even in a small way I want to express my gratitude to you and the 
+                        person you are, there is truly nobody like you. Keep doing what you are doing my love. Never change for nobody queen
+    
+                    </p>
+                     <p>
+                        Below I made a little timeline of moments that I think both of us can reminicise on a bit. <br>
+                        The music playing is also a collection of songs that I think we can both appreciate, especially the last one,
+                        even though it's not a love song per say...
+                    </p>
+                </div>
+                <div class="letter-image">
+                    <img src="img7.jpg" alt="Memory 4">
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <section>
+                <h2 class="section-title">Some of our memories together</h2>
+                <div id="timeline-container" class="timeline">
+                    <div class="timeline-line"></div>
+                </div>
+
+                <div id="memory-display" class="card memory-viewer">
+                    <div id="memory-date" class="corner-date"></div>
+                    <div class="memory-content">
+                        <img id="memory-img" src="" alt="we better take this photo on the 14th">
+                        <div class="memory-text">
+                            <h3 id="memory-title"></h3>
+                            <p id="memory-desc"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card extra-margin">
+                <h2 class="section-title">Over and over again little splig, I love you so so so so SOOOOOO MUCH!!!!! RAHHHH 🦞☀️</h2>
+            </section>
+        </div>
+        
+        <footer>
+            I really wanted to make this special for you baby, I hope you like it <span class="heart">&hearts;</span>
+        </footer>
+    </div>
+
+    <script>
+        const memories = [
+            {
+                title: "Provoker Concert",
+                date: "November 16th, 2024",
+                desc: "Maybe we should make this our new anniversary because I remember it better than our first night together! It really felt like our first date to me, and spending the whole evening with you was fire!! We should try going to more concerts no cyap",
+                img: "img4.jpg",
+                pos: 5
+            },
+            {
+                title: "Rowan's Birthday",
+                date: "December 21st, 2024",
+                desc: "For some reason this night is really memorable for me, despite what happened to my foot, " 
+                + "I felt so happy introducing my favourite girl to my friends, I was so proud",
+                img: "slideshow5.png",
+                pos: 20 
+            },
+            {
+                title: "Walk to Cactus",
+                date: "June 30th, 2025",
+                desc: "This day was so fun and we should really trying doing silly adventures like this more. (by this I mean more hikes hahaha) Bellini after that shit hit different bro, CACTUS MY GOAT",
+                img: "img5.jpg",
+                pos: 45 
+            },
+            {
+                title: "Celebration of Lights",
+                date: "july 23rd, 2025",
+                desc: "This really was the perfect summer day I cant lie... spending the whole day on an adventure was such a blast. getting a yummy lunch at a mexican place, buying UNO, and seeing the lights with saul while we were on edibles. FUCKING CLASS!",
+                img: "img8.jpg",
+                pos: 60
+            },
+            {
+                title: "Our anniversary + 1",
+                date: "November 11th, 2025",
+                desc: "Taking the scooters in the cold up to the bus stop was such a memorable experience and just the way to end our date, I have that moment ingrained in my memory and I'm so glad we did that. Oh and dinner at joeys girlll, we should tell Cactus that it's our anniversary today and see if they give us free shit",
+                img: "img9.jpg",
+                pos: 80
+            },
+            {
+                title: "Valentines Day?!?",
+                date: "February 14th, 2026",
+                desc: "Maybe we can add a photo from this valentines day of us together perhaps...🥺 i'd put it right into the site!!",
+                img: "img10.jpg",
+                pos: 102
+            },
+        ];
+// 1. Your list of header images
+const headerImages = [
+    'slideshow1.jpg',
+    'slideshow2.jpg',
+    'slideshow3.jpg',
+    'slideshow4.jpg',
+    'slideshow6.jpg',
+    'slideshow7.jpg'
+];
+
+let currentHeaderIndex = 0;
+
+function startSlideshow() {
+    const hero = document.getElementById('hero-slideshow');
+    
+    setInterval(() => {
+        currentHeaderIndex = (currentHeaderIndex + 1) % headerImages.length;
+        
+        // Update the background image
+        // We use a transition to make the swap feel smooth
+        hero.style.backgroundImage = `linear-gradient(rgba(255,183,197,0.4), rgba(255,183,197,0.4)), url('${headerImages[currentHeaderIndex]}')`;
+    }, 5000); // Change image every 5 seconds
+}
+
+// Update your startExperience function to include the slideshow
+function startExperience() {
+    const music = document.getElementById('bg-music');
+    music.play();
+
+    document.getElementById('overlay').classList.add('hidden');
+    document.getElementById('main-content').classList.remove('content-blurred');
+
+    renderTimeline();
+    startSlideshow(); // Kick off the slideshow here
+    setInterval(createFloatingEmoji, 400); 
+}
+
+        function renderTimeline() {
+            const container = document.getElementById('timeline-container');
+            const line = container.querySelector('.timeline-line');
+            container.innerHTML = '';
+            container.appendChild(line);
+
+            memories.forEach((memory, index) => {
+                const eventDiv = document.createElement('div');
+                eventDiv.className = `event ${index === 0 ? 'active' : ''}`;
+                eventDiv.style.position = "absolute";
+                eventDiv.style.left = `${memory.pos}%`;
+                eventDiv.style.transform = "translateX(-50%)";
+                eventDiv.onclick = () => showMemory(index);
+                eventDiv.innerHTML = `<div class="dot"></div><span>${memory.title}</span>`;
+                container.appendChild(eventDiv);
+            });
+            showMemory(0);
+        }
+
+        function showMemory(index) {
+            const displayArea = document.querySelector('.memory-content');
+            const dateArea = document.getElementById('memory-date');
+            displayArea.classList.remove('fade-in');
+            dateArea.classList.remove('fade-in');
+            void displayArea.offsetWidth; 
+
+            document.getElementById('memory-img').src = memories[index].img;
+            document.getElementById('memory-title').innerText = memories[index].title;
+            document.getElementById('memory-desc').innerText = memories[index].desc;
+            dateArea.innerText = memories[index].date;
+
+            displayArea.classList.add('fade-in');
+            dateArea.classList.add('fade-in');
+
+            document.querySelectorAll('.event').forEach((el, i) => {
+                el.classList.toggle('active', i === index);
+            });
+        }
+    function createFloatingEmoji() {
+    const emojis = ['❤️', '💖', '🌷', '🌸', '💕', '☀️'];
+    const emoji = document.createElement('div');
+    
+    // Set properties
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.className = 'floating-emoji';
+    
+    // Randomize starting position (horizontal)
+    const startX = Math.random() * window.innerWidth;
+    emoji.style.left = startX + 'px';
+    
+    // Randomize size
+    const size = Math.random() * (30 - 15) + 15;
+    emoji.style.fontSize = size + 'px';
+    
+    // Randomize duration (speed)
+    const duration = Math.random() * (6 - 3) + 3;
+    emoji.style.animationDuration = duration + 's';
+
+    document.body.appendChild(emoji);
+
+    // Remove emoji after animation finishes to keep the DOM clean
+    setTimeout(() => {
+        emoji.remove();
+    }, duration * 1000);
+}
+
+
+    </script>
+</body>
+</html>

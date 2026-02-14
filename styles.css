@@ -1,0 +1,305 @@
+:root {
+    --primary-pink: #ffb7c5;
+    --deep-red: #d63031;
+    --soft-white: #fff5f6;
+    --text-color: #2d3436;
+}
+
+/* Overlay & Entrance */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 245, 246, 0.8);
+    backdrop-filter: blur(15px); /* Blurs content behind overlay */
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease, visibility 1s;
+}
+
+.overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.overlay-content {
+    text-align: center;
+    background: white;
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.overlay h1 {
+    color: var(--deep-red);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.overlay button {
+    background-color: var(--deep-red);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(214, 48, 49, 0.3);
+    transition: transform 0.2s;
+}
+
+.overlay button:hover {
+    transform: scale(1.05);
+}
+
+/* Background Blur Logic */
+.content-blurred {
+    filter: blur(10px);
+    transition: filter 1.5s ease;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    /* 1. Keep your base pink color here */
+    background-color: var(--soft-white); 
+    color: var(--text-color);
+    overflow-x: hidden;
+    position: relative; /* Needed for the pseudo-element to stick */
+}
+
+/* 2. Create the texture on a "ghost" layer */
+body::before {
+    content: "";
+    position: fixed; /* Fixed so it stays put while you scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* The Texture Image */
+    background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+    
+    /* 3. The Control Knob: Lower this to make it softer */
+    opacity: 0.4;  /* Try 0.2 for barely visible, 0.5 for distinct */
+    
+    z-index: -1; /* Puts it BEHIND the text */
+    pointer-events: none; /* Ensures you can still click things */
+}
+
+/* Hero Section */
+.hero {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    /* Set the first image as the default */
+    background-image: linear-gradient(rgba(255,183,197,0.4), rgba(255,183,197,0.4)), url('slideshow1.jpg');
+    /* This makes the background swap look like a fade */
+    transition: 1.5s ease-in-out;
+}
+
+.top {
+    font-family: 'Georgia', 'Times New Roman', serif; /* Elegant serif font */
+    font-size: 4.5rem; /* Nice and Big */
+    color: var(--deep-red);
+    margin: 0;
+
+}
+.header-card p {
+    font-size: 1.4rem;
+    margin-top: 15px;
+    font-weight: 300;
+    color: var(--text-color);
+}
+/* Letter Rows (Zig-Zag) */
+.letter-container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.letter-row {
+    display: flex;
+    align-items: flex-start; /* Aligns text to top of image */
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.letter-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.letter-text {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding-top: 10px;
+}
+
+.letter-image {
+    flex: 1;
+}
+
+.letter-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Timeline */
+.timeline {
+    height: 80px;
+    margin: 40px auto 60px;
+    position: relative;
+    max-width: 800px;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-pink);
+}
+
+.event {
+    z-index: 1;
+    cursor: pointer;
+    text-align: center;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 3px solid var(--primary-pink);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.event.active .dot {
+    background: var(--deep-red);
+    border-color: var(--deep-red);
+    transform: scale(1.3);
+}
+
+.event span {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--deep-red);
+}
+
+/* Memory Display */
+.memory-viewer {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);   
+}
+
+.memory-content {
+    display: flex;
+    align-items: center; /* Vertically centers text with the image */
+    flex-direction: row; /* Forces side-by-side layout */
+    min-height: 350px;
+    background: white;
+}
+
+/* Fix the image to one side */
+.memory-content img {
+    width: 50%; /* Image takes up half the card */
+    height: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Adjust the text area */
+.memory-text {
+    flex: 1; /* Takes up the remaining 50% */
+    padding: 3rem;
+    text-align: top; /* Left-aligned looks cleaner in a side-by-side view */
+}
+
+/* Ensure the date stays in a good spot */
+.corner-date {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--deep-red);
+    border: 1px solid var(--primary-pink);
+    z-index: 10;
+}
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.extra-margin { 
+    margin-top: 6rem; 
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem;
+    color: var(--deep-red);
+}
+
+.heart { font-size: 1.5rem; }
+
+.floating-emoji {
+    position: fixed;
+    bottom: -50px; /* Start below the screen */
+    z-index: 999;
+    pointer-events: none; /* So she can still click the timeline/buttons */
+    animation: floatUp linear forwards;
+    opacity: 0.7;
+}
+.sidetext{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg); /* Float past the top */
+        opacity: 0;
+    }
+}
